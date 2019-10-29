@@ -1,3 +1,5 @@
+$height: 150px;
+
 body,
 h1 {
     margin: 0;
@@ -14,12 +16,13 @@ header {
     &__inner {
         position: relative;
         width: 100%;
-        min-height: 500px;
+        height: 100vh;
     }
     &__item {
         width: calc(100% / 6);
         height: 150px;
         position: absolute;
+        transition: all 0.5s ease;
     }
     &__content {
         height: calc(100% - 20px);
@@ -34,48 +37,85 @@ header {
 .gridBox__item {
     &:first-child {
         width: calc(100% * 2 / 6);
+        left: 0;
+        top: 0;
     }
     &:nth-child(2) {
         width: calc(100% * 2 / 6);
-        // height: 300px;
+        height: 2 * $height;
+        left: calc(100% * 2 / 6);
+        top: 0;
     }
     &:nth-child(3) {
         width: calc(100% / 6);
+        left: calc(100% * 4 / 6);
+        top: 0;
     }
     &:nth-child(4) {
         width: calc(100% / 6);
+        left: calc(100% * 5 / 6);
+        top: 0;
     }
     &:nth-child(5) {
         width: calc(100% / 6);
+        left: 0;
+        top: 150px;
     }
     &:nth-child(6) {
         width: calc(100% / 6);
-        // height: 300px;
+        height: 2 * $height;
+        left: calc(100% / 6);
+        top: 150px;
     }
-    // &:nth-child(7) {
-    //     width: calc(100% / 6);
-    //     left: calc(100% * 5 / 6);
-    //     top: 0;
-    // }
-    // &:nth-child(8) {
-    //     width: calc(100% * 2 / 6);
-    //     height: 300px;
-    //     left: calc(100% * 2 / 6);
-    //     top: 0;
-    // }
-    // &:nth-child(9) {
-    //     width: calc(100% / 6);
-    //     left: calc(100% * 4 / 6);
-    //     top: 0;
-    // }
-    // &:nth-child(10) {
-    //     width: calc(100% / 6);
-    //     left: calc(100% * 5 / 6);
-    //     top: 0;
-    // }
-    // &:last-child {
-    //     width: calc(100% / 6);
-    //     left: calc(100% * 5 / 6);
-    //     top: 0;
-    // }
+    &:nth-child(7) {
+        width: calc(100% / 6);
+        left: calc(100% * 4 / 6);
+        top: 150px;
+    }
+    &:nth-child(8) {
+        width: calc(100% * 3 / 6);
+        left: calc(100% * 2 / 6);
+        top: 300px;
+    }
+    &:nth-child(9) {
+        width: calc(100% / 6);
+        left: 0;
+        top: 300px;
+    }
+    &:nth-child(10) {
+        width: calc(100% / 6);
+        left: 0;
+        top: 450px;
+    }
+    &:nth-child(11) {
+        width: calc(100% / 6);
+        left: calc(100% / 6);
+        top: 450px;
+    }
+    &:nth-child(12) {
+        width: calc(100% / 6);
+        left:  calc(100% * 2 / 6);
+        top: 450px;
+    }
+    &:nth-child(13) {
+        width: calc(100% / 6);
+        left:  calc(100% * 3 / 6);
+        top: 450px;
+    }
+    &:nth-child(14) {
+        width: calc(100% / 6);
+        left:  calc(100% * 4 / 6);
+        top: 450px;
+    }
+    &:last-child {
+        width: calc(100% / 6);
+        height: 3 * $height;
+        left:  calc(100% * 5 / 6);
+        top: 150px;
+    }
+}
+
+.is-move {
+    z-index: 2;
+    opacity: 0.8;
 }
