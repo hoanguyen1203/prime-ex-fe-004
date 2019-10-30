@@ -1,84 +1,106 @@
-$(document).ready(function(){
-    let widthScreen = $( window ).width();
-    let widthItem = Math.ceil((widthScreen - 40) / 6);
-    // console.log(widthItem);
+class GridStackWraper {
+    constructor(element, items, group) {
+        $(element).gridstack()
 
-    // const gridBoxItem = document.querySelectorAll(".gridBox__item");
-	
+        this.element = element
+        this.items = items || [
+            {x: 0, y: 0, width: 2, height: 2},
+            {x: 2, y: 0, width: 4, height: 4},
+            {x: 6, y: 0, width: 2, height: 2},
+            {x: 8, y: 0, width: 4, height: 2},
+            {x: 0, y: 2, width: 2, height: 2},
+            {x: 6, y: 2, width: 4, height: 2},
+            {x: 10, y: 2, width: 2, height: 2},
+            {x: 0, y: 4, width: 2, height: 4},
+            {x: 2, y: 4, width: 4, height: 2},
+            {x: 6, y: 4, width: 2, height: 2},
+            {x: 8, y: 4, width: 4, height: 4},
+            {x: 2, y: 6, width: 6, height: 2}
+        ]
+        this.group = group || 1
 
+        this.instance = $(element).data('gridstack')
 
-    // let positionFirstItem = $(".gridBox__item:first-child").position();
-    // console.log("Top: " + positionFirstItem.top + " Left : " + positionFirstItem.left);
+        this.addNewWidget = document.querySelector("#add-widget")
+        this.addListWidgets = document.querySelector("#add-list-widget")
 
-    // let countGridBoxItem = $(".gridBox__item").length;
+        this.addNewWidget2 = document.querySelector("#add-widget-2")
+        this.addListWidgets2 = document.querySelector("#add-list-widget-2")
 
-    // let sumWidth  = 0;
-    // let row = 0;
-    // let col = 0;
-    // let top;
-    // let left;
-    // $(".gridBox__item").each(function(index){
-    //     // debugger;
-    //     let i = index + 1;
+        this.count = this.instance.grid.nodes.length + 1
         
-    //     if((sumWidth + 40) >= widthScreen - 1) {
-    //         row++;
-    //         sumWidth = 0;
-    //     }
+        return this  
+    }
 
-    //     top = row * 150;
-    //     $(this).css({left: Math.ceil(sumWidth), top: Math.ceil(top)});
-        
-    //     // $(this).addClass("item__"+i);
-        
-    //     for (var j = 0; j < index; j++) {
-    //         if(gridBoxItem[j].style.left === gridBoxItem[index].style.left) {
-    //             var bottom = gridBoxItem[j].clientTop + gridBoxItem[j].offsetHeight;
-    //             if ((bottom.toString() + "px") >  gridBoxItem[index].style.top) {
-    //                 sumWidth += gridBoxItem[j].offsetWidth;
-    //                 $(this).css({left: sumWidth});
-    //             }
-                
-    //         }
-    //         //console.log(gridBoxItem[j].style.left);
-    //     }
-    //     //$(this).css({left: sumWidth, top: top});
+    init() {
+        this.addNewWidget.addEventListener("click", () => {
+            if(this.group === 2) {
+                this.addWidget()
+                this.count++
+            }
+        })
 
+        this.addListWidgets.addEventListener("click", () => {
+            if(this.group === 2) {
+                this.addListWidget()
+            }
+        })
 
-    //     sumWidth += $(this).width();
-        
-    // });
-    
-    let isDown = false;
+        this.addNewWidget2.addEventListener("click", () => {
+            if(this.group === 1) {
+                this.addWidget()
+                this.count++
+            }
+        })
 
-    // $(".gridBox__inner").sortable();
+        this.addListWidgets2.addEventListener("click", () => {
+            if(this.group === 1) {
+                this.addListWidget()
+            }
+        })
+    }
 
-    $(".gridBox__item").mousedown(function() {
-        isDown = true;
-        $(this).addClass("is-move");
-    });
+    addWidget() {
+        let grid = $(this.element).data('gridstack')
+        grid.addWidget(
+            $('<div class="grid-stack-item"><div class="grid-stack-item-content"><span>'+this.count+'</span><div/><div/>'),
+            0,
+            0,
+            Math.floor(1 + 4 * Math.random()),
+            Math.floor(1 + 4 * Math.random()),
+            true
+        )
+    }
 
-    document.addEventListener('mouseup', () => {
-        isDown = false;
-        $(".gridBox__item").removeClass("is-move");
-    });
+    addListWidget() {
+        this.items.map( object => {
+            this.instance.addWidget(
+                $('<div class="grid-stack-item"><div class="grid-stack-item-content"><span>'+this.count+'</span><div/><div/>'),
+                    object.x,
+                    object.y,
+                    object.width,
+                    object.height
+            )
+            this.count++;
+        })
+    }
+}
 
-    $(".gridBox__inner").on("mousemove", (event) => {
-        event.preventDefault();
-        if(isDown) {
-            let x = event.clientX;
-            let y = event.clientY;
-            let element = $(".is-move");
-            let newPosX = x - (element.width()/2);
-            let newPosY = y - element.height();
-            let modX = Math.ceil(newPosX / widthItem);
-            let modY = Math.ceil(newPosY / 150);
-            
-            element.css("left", modX * widthItem);
-            element.css("top", modY * 150);
-        }
-    });
+const GridStack = new GridStackWraper('.grid-stack', [
+    {x: 0, y: 0, width: 4, height: 2},
+    {x: 4, y: 0, width: 4, height: 4},
+    {x: 8, y: 0, width: 2, height: 2},
+    {x: 10, y: 0, width: 2, height: 2},
+    {x: 0, y: 2, width: 2, height: 2},
+    {x: 2, y: 2, width: 2, height: 4},
+    {x: 8, y: 2, width: 4, height: 2},
+    {x: 0, y: 4, width: 2, height: 2},
+    {x: 4, y: 4, width: 4, height: 2},
+    {x: 8, y: 4, width: 2, height: 2},
+    {x: 10, y: 4, width: 2, height: 2},
+    {x: 0, y: 6, width: 12, height: 2}
+], 2)
+GridStack.init()
 
-    //$(".gridBox__inner").sortable();
-    
-});
+const GridStack2 = new GridStackWraper('.gridBox')
+GridStack2.init()

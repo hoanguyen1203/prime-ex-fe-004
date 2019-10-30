@@ -6,97 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GridBox</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
-    <script src="src/script.js" async></script>
+    <link href="https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/gridstack.css">
+
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.0/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>
+    <script src="dist/gridstack.js"></script>
+    <script src="dist/gridstack.jQueryUI.js"></script>
+
+    <script src="src/script.js" async></script>
 </head>
 
 <body>
     <header>
         <h1>Demo</h1>
     </header>
-    <div class="gridBox">
-        <div class="gridBox__inner">
-            <div class="gridBox__item width-2 height-1">
-                <div class="gridBox__content">
-                    <span>1</span>
-                </div>
-            </div>
-            <div class="gridBox__item width-2 height-2">
-                <div class="gridBox__content">
-                    <span>2</span>
-                </div>
-            </div>
-            <div class="gridBox__item width-1 height-1">
-                <div class="gridBox__content">
-                    <span>3</span>
-                </div>
-            </div>
-            <div class="gridBox__item width-1 height-1">
-                <div class="gridBox__content">
-                    <span>4</span>
-                </div>
-            </div>
-            <div class="gridBox__item width-1 height-1">
-                <div class="gridBox__content">
-                    <span>5</span>
-                </div>
-            </div>
-            <div class="gridBox__item width-1 height-2">
-                <div class="gridBox__content">
-                    <span>6</span>
-                </div>
-            </div>
-            <div class="gridBox__item width-1 height-1">
-                <div class="gridBox__content">
-                    <span>7</span>
-                </div>
-            </div>
-            <div class="gridBox__item width-3 height-1">
-                <div class="gridBox__content">
-                    <span>8</span>
-                </div>
-            </div>
-            <div class="gridBox__item width-1 height-1">
-                <div class="gridBox__content">
-                    <span>9</span>
-                </div>
-            </div>
-            <div class="gridBox__item width-1 height-1">
-                <div class="gridBox__content">
-                    <span>10</span>
-                </div>
-            </div>
-            <div class="gridBox__item width-1 height-1">
-                <div class="gridBox__content">
-                    <span>11</span>
-                </div>
-            </div>
-            <div class="gridBox__item width-1 height-1">
-                <div class="gridBox__content">
-                    <span>12</span>
-                </div>
-            </div>
-            <div class="gridBox__item width-1 height-1">
-                <div class="gridBox__content">
-                    <span>13</span>
-                </div>
-            </div>
-            <div class="gridBox__item width-1 height-1">
-                <div class="gridBox__content">
-                    <span>14</span>
-                </div>
-            </div>
-            <div class="gridBox__item width-3 height-1">
-                <div class="gridBox__content">
-                    <span>15</span>
-                </div>
-            </div>
+
+    <div class="content">
+
+        <div>
+            <a href="#" id="add-widget" class="button">Add Widget</a>
+            <a href="#" id="add-list-widget" class="button">Add List Widget</a>
         </div>
+
+        <div class="grid-stack">
+        </div>
+
+        <div>
+            <a href="#" id="add-widget-2" class="button">Add Widget</a>
+            <a href="#" id="add-list-widget-2" class="button">Add List Widget</a>
+        </div>
+
+        <div class="gridBox">
+        </div>
+
     </div>
 </body>
 
