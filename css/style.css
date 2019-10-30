@@ -15,8 +15,11 @@ header {
 .content {
   padding: 50px 20px;
   background-color: #2c3e50; }
-  .content > div {
-    margin: 50px 0; }
+  .content__inner {
+    max-width: 1200px;
+    margin: 0 auto; }
+    .content__inner > div {
+      margin: 50px 0; }
 
 .button {
   padding: 10px 20px;

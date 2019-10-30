@@ -18,8 +18,12 @@ header {
 .content {
     padding: 50px 20px;
     background-color: #2c3e50;
-    & > div {
-        margin: 50px 0;
+    &__inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        & > div {
+            margin: 50px 0;
+        }
     }
 }
 
