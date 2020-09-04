@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "gridstack": "^0.4.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "serve": "^11.2.0"
   },
   "devDependencies": {
